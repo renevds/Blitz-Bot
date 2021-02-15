@@ -15,7 +15,7 @@ def readtext():
     for x in range(4):
         for y in range(4):
             with mss.mss() as sct:
-                im = sct.grab({'top': 600 + 150*x, 'left': 120 + 150*y, 'width': 65, 'height': 90})
+                im = sct.grab({'top': 635 + 150*x, 'left':305 + 150*y, 'width': 65, 'height': 90})
 
 
                 mss.tools.to_png(im.rgb, im.size, output="img(" + str(x) + "," + str(y) + ").png")
@@ -33,3 +33,5 @@ def readtext():
     print(alltext)
     return alltext
 
+if __name__ == '__main__':
+    print(readtext())

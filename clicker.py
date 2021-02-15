@@ -12,13 +12,14 @@ topleft = (300, 630)
 width = 150
 height = 150
 
-
+text = ""
 
 def proctestcombs(a, L, C):
     for h in reversed(C):
         if a <= len(h):
             word = ""
             for i in h:
+                global text
                 word += text[i[0] + 4 * i[1]]
             if word in wordlists[len(word)]:
                 print("cor-word: " + word)
@@ -83,7 +84,11 @@ if __name__ == '__main__':
             if a <= len(h) < b:
                 word = ""
                 for i in h:
-                    word += text[i[0] + 4 * i[1]]
+                    try:
+                        word += text[i[0] + 4 * i[1]]
+                    except IndexError:
+                        print(i[0])
+                        print(i[1])
                 if word in wordlists[len(word)]:
                     print("cor-word: " + word)
                     goodcombs.append(h)
